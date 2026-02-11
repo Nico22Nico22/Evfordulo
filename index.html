@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Évforduló 💍</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:linear-gradient(135deg,#2b1055,#7597de);
+    font-family:'Segoe UI',sans-serif;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* FŐ GRID */
+
+.container{
+    display:grid;
+    min-height:100vh;
+    place-items:center;
+    padding:80px 20px;
+    text-align:center;
+}
+
+/* ÜVEG KÁRTYA */
+
+.card{
+    display:grid;
+    gap:35px;
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(25px);
+    padding:70px;
+    border-radius:35px;
+    box-shadow:0 40px 100px rgba(0,0,0,0.5);
+    max-width:950px;
+    animation:glow 4s infinite alternate;
+}
+
+/* CÍM */
+
+h1{
+    font-size:48px;
+    letter-spacing:4px;
+    text-shadow:0 0 20px rgba(255,182,193,0.8);
+}
+
+/* SZÖVEG */
+
+p{
+    font-size:18px;
+    line-height:2;
+}
+
+/* FINOM FÉNY ANIMÁCIÓ */
+
+@keyframes glow{
+    from{box-shadow:0 0 40px rgba(255,182,193,0.3);}
+    to{box-shadow:0 0 90px rgba(255,105,180,0.8);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="card">
+        <h1>Boldog Évfordulót 💞</h1>
+
+        <p>
+        Drága Bogim, az én Cutám 💞
+        <br><br>
+        Ma nem csak egy napot ünneplünk. Ma azt ünneplem, hogy az életem része lettél. Hogy egyszer csak megjelentél, és onnantól semmi nem volt ugyanolyan.
+        <br><br>
+        Emlékszem, milyen volt az elején. Az első beszélgetések, az első nevetések, az első „jó éjt” üzenetek, amiket nem akartam befejezni. Akkor még nem tudtam, hogy egyszer ennyire fontos leszel nekem. Hogy egyszer majd te leszel az a személy, akire minden nap gondolok.
+        <br><br>
+        Azt álmodom – és már nem is csak álomként –, hogy egyszer majd visszanézünk erre az időszakra, és azt mondjuk:
+        <br>
+        „Megérte várni.”
+        <br><br>
+        Elképzelem az első igazi évfordulónkat együtt. Nem képernyőn keresztül. Nem távolról. Hanem úgy, hogy ott ülsz mellettem. Talán ugyanazon a pokrócon egy parkban. A fejed a mellkasomon, a kezem a tiédben. És nem kell számolni a perceket, mert nem kell elköszönni.
+        <br><br>
+        Az évfordulónk számomra nem csak egy dátum. Hanem bizonyíték arra, hogy kitartunk. Hogy választjuk egymást. Hogy a távolság ellenére is itt vagyunk.
+        <br><br>
+        Te lettél az a személy, akinek először írok, ha valami jó történik. És akinek először mondanám el, ha valami fáj. Te vagy az, aki megnyugtat. Aki hiányzik. Akihez tartozni akarok.
+        <br><br>
+        Nem ígérek tökéletes kapcsolatot. De azt igen, hogy mindig küzdeni fogok értünk. Hogy nem akarlak elengedni. Hogy minden nap újra téged választalak.
+        <br><br>
+        És ha egyszer majd ott állunk egymással szemben, igazán, először, akkor tudni fogom: minden várakozás, minden hiány, minden nehéz este ezért a pillanatért volt.
+        <br><br>
+        Boldog évfordulót, az én szerelmem. 💖<br>
+        Köszönöm, hogy vagy nekem.<br>
+        Köszönöm, hogy az enyém vagy.<br>
+        És köszönöm, hogy én a tied lehetek.
+        <br><br>
+        Szeretlek. Nem csak ma. Hanem minden nap.
+        <br><br>
+        Nico 💞
+        </p>
+
+    </div>
+</div>
+    <!-- Zene elem -->
+    <audio id="musicPlayer" loop preload="auto">
+      <source src="zene/in-this-shirt.mp3" type="audio/mpeg" />
+      A böngésződ nem támogatja az audio elemet.
+    </audio>
+
+    <!-- Rejtett, középre helyezett gomb -->
+    <button
+      id="startMusic"
+      style="
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 16px; /* nagyobb szöveg */
+        padding: 12px 24px; /* nagyobb gomb */
+        border-radius: 10px;
+        border: none;
+        background: rgba(255, 182, 193, 0.85);
+        color: #fff;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+      "
+    >
+      Indíts zene
+    </button>
+
+    <script>
+      const audio = document.getElementById("musicPlayer");
+
+      // Próbáljuk elindítani betöltéskor
+      function tryPlayAudio() {
+        audio.play().catch(() => {
+          // Ha nem indul el, gombot mutatunk
+          document.getElementById("startMusic").style.display = "inline";
+        });
+      }
+
+      window.addEventListener("load", tryPlayAudio);
+
+      // Gomb kattintásra elindítjuk a zenét és eltűntetjük a gombot
+      document.getElementById("startMusic").addEventListener("click", () => {
+        audio.play();
+        document.getElementById("startMusic").style.display = "none";
+      });
+    </script>
+</body>
+</html>
